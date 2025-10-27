@@ -3,53 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Toko Game PC Online</title>
+  <title>PC Game Universe</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>🎮 Toko Game PC Online</h1>
+    <div class="logo">🎮 <span>GameVerse</span></div>
     <nav>
-      <a href="#home">Beranda</a>
-      <a href="#games">Daftar Game</a>
-      <a href="#contact">Kontak</a>
+      <a href="#" class="nav-link" data-page="home">Beranda</a>
+      <a href="#" class="nav-link" data-page="games">Daftar Game</a>
+      <a href="#" class="nav-link" data-page="contact">Kontak</a>
+      <div class="cart-icon">
+        🛒 <span id="cart-count">0</span>
+      </div>
     </nav>
   </header>
 
-  <section id="home">
-    <h2>Selamat Datang di Toko Game PC</h2>
-    <p>Temukan berbagai game PC original dengan harga terjangkau.</p>
-  </section>
+  <main id="content">
+    <!-- Halaman Beranda -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <h1>Selamat Datang di <span>GameVerse</span></h1>
+        <p>Temukan game PC favoritmu dengan harga terbaik dan akses instan. Aman, cepat, dan 100% original!</p>
+        <button id="shopNow">Belanja Sekarang</button>
+      </div>
+    </section>
 
-  <section id="games" class="games-list">
-    <h2>Daftar Game Populer</h2>
-    <div class="game">
-      <img src="https://upload.wikimedia.org/wikipedia/en/5/51/The_Witcher_3_Wild_Hunt_cover.jpg" alt="The Witcher 3" />
-      <h3>The Witcher 3: Wild Hunt</h3>
-      <p>Rp 250.000</p>
-      <button>Beli Sekarang</button>
-    </div>
-    <div class="game">
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Grand_Theft_Auto_V.png" alt="GTA V" />
-      <h3>Grand Theft Auto V</h3>
-      <p>Rp 300.000</p>
-      <button>Beli Sekarang</button>
-    </div>
-    <div class="game">
-      <img src="https://upload.wikimedia.org/wikipedia/en/b/b0/Minecraft_cover.png" alt="Minecraft" />
-      <h3>Minecraft</h3>
-      <p>Rp 150.000</p>
-      <button>Beli Sekarang</button>
-    </div>
-  </section>
+    <!-- Halaman Daftar Game -->
+    <section id="games" class="page">
+      <h2>🔥 Koleksi Game Terpopuler</h2>
+      <div class="games-list">
+        <div class="game">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/The_Witcher_3_cover_art.jpg" alt="The Witcher 3">
+          <h3>The Witcher 3: Wild Hunt</h3>
+          <p class="price">Rp 250.000</p>
+          <button class="add-to-cart" data-name="The Witcher 3" data-price="250000">Tambah ke Keranjang</button>
+        </div>
 
-  <section id="contact">
-    <h2>Hubungi Kami</h2>
-    <p>Email: <a href="mailto:support@tokogamepc.com">support@tokogamepc.com</a></p>
-  </section>
+        <div class="game">
+          <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="GTA V">
+          <h3>Grand Theft Auto V</h3>
+          <p class="price">Rp 300.000</p>
+          <button class="add-to-cart" data-name="GTA V" data-price="300000">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="game">
+          <img src="https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png" alt="Minecraft">
+          <h3>Minecraft</h3>
+          <p class="price">Rp 150.000</p>
+          <button class="add-to-cart" data-name="Minecraft" data-price="150000">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Halaman Kontak -->
+    <section id="contact" class="page">
+      <h2>📞 Hubungi Kami</h2>
+      <p>Butuh bantuan atau ingin menanyakan stok game tertentu?</p>
+      <p>Kirim email ke: <a href="mailto:gameverse@gmail.com">support@gameverse.com</a></p>
+      <p>Atau hubungi kami melalui WhatsApp: <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+    </section>
+  </main>
+
+  <!-- Modal Keranjang -->
+  <div id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>🛒 Keranjang Belanja</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-price">Total: Rp 0</p>
+      <button id="checkout">Checkout</button>
+      <button id="closeCart">Tutup</button>
+    </div>
+  </div>
 
   <footer>
-    <p>© 2025 Toko Game PC. All rights reserved.</p>
+    <p>© 2025 Game Universe. All Rights Reserved.</p>
   </footer>
 
   <script src="script.js"></script>
