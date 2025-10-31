@@ -1,4 +1,11 @@
-// Navigasi antar halaman (tidak diubah fungsinya)
+/* ===========================
+   SCRIPT UTAMA (index.js)
+   - Navigasi halaman
+   - Keranjang belanja (add, update, checkout, clear)
+   - Info modal (Tentang Game) + blur background + animasi
+   =========================== */
+
+/* ----- Navigasi antar halaman ----- */
 const navLinks = document.querySelectorAll('.nav-link');
 const pages = document.querySelectorAll('.page');
 const shopNow = document.getElementById('shopNow');
@@ -17,14 +24,16 @@ shopNow?.addEventListener('click', () => {
   document.getElementById('games').classList.add('active');
 });
 
-// Fitur keranjang belanja
+
+/* ----- KERANJANG BELANJA ----- */
 let cart = [];
 const cartCount = document.getElementById('cart-count');
 const cartModal = document.getElementById('cart-modal');
 const cartItems = document.getElementById('cart-items');
 const totalPrice = document.getElementById('total-price');
 const checkoutBtn = document.getElementById('checkout');
-const closeCart = document.getElementById('closeCart');
+const closeCartBtn = document.getElementById('closeCart'); // tombol X di modal
+const clearCartBtn = document.getElementById('clearCart');
 
 // Tombol tambah ke keranjang
 document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -37,23 +46,122 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   });
 });
 
-// Update isi keranjang
+// Update isi keranjang & tampilkan hitungan
 function updateCart() {
   cartCount.textContent = cart.length;
   cartItems.innerHTML = '';
   let total = 0;
-  cart.forEach(item => {
+  cart.forEach((item, idx) => {
     total += item.price;
     const li = document.createElement('li');
-    li.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+    li.textContent = `${idx + 1}. ${item.name} - Rp ${item.price.toLocaleString()}`;
     cartItems.appendChild(li);
   });
   totalPrice.textContent = `Total: Rp ${total.toLocaleString()}`;
 }
 
-// Modal keranjang
+// Buka modal keranjang
 document.querySelector('.cart-icon').addEventListener('click', () => {
+  // set body class to blur background
+  document.body.classList.add('modal-open');
   cartModal.classList.remove('hidden');
 });
 
-closeCart
+// Tutup modal keranjang (X)
+closeCartBtn.addEventListener('click', () => {
+  document.body.classList.remove('modal-open');
+  cartModal.classList.add('hidden');
+});
+
+// Checkout
+checkoutBtn.addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert('Keranjang kamu masih kosong!');
+    return;
+  }
+  alert('Terima kasih! Pesananmu sedang diproses.');
+  cart = [];
+  updateCart();
+  document.body.classList.remove('modal-open');
+  cartModal.classList.add('hidden');
+});
+
+// Bersihkan keranjang
+clearCartBtn.addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert('Keranjang sudah kosong.');
+    return;
+  }
+  if (confirm('Yakin ingin mengosongkan keranjang?')) {
+    cart = [];
+    updateCart();
+  }
+});
+
+
+/* ----- MODAL "Tentang Game" (Info modal) ----- */
+const infoModal = document.getElementById('info-modal');
+const infoTitle = document.getElementById('info-title');
+const infoDesc = document.getElementById('info-desc');
+const infoClose = document.getElementById('infoClose');
+
+// Semua tombol "Tentang Game"
+document.querySelectorAll('.btn-info').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Ambil judul game dari parent kartu atau dari attribute data
+    const card = btn.closest('.game');
+    const title = card?.getAttribute('data-title') || card?.querySelector('h3')?.textContent || 'Game';
+    const description = btn.dataset.description || 'Deskripsi tidak tersedia.';
+    // isi modal
+    infoTitle.textContent = title;
+    infoDesc.textContent = description;
+    // tampilkan modal dan blur background (dengan class body.modal-open)
+    document.body.classList.add('modal-open');
+    infoModal.classList.remove('hidden');
+
+    // focus accessibility: fokus ke tombol close saat modal terbuka
+    setTimeout(() => infoClose.focus(), 200);
+  });
+});
+
+// Tombol close pada info modal
+infoClose.addEventListener('click', () => {
+  infoModal.classList.add('hidden');
+  document.body.classList.remove('modal-open');
+});
+
+// Tutup modal jika klik area di luar konten modal
+infoModal.addEventListener('click', (e) => {
+  if (e.target === infoModal) {
+    infoModal.classList.add('hidden');
+    document.body.classList.remove('modal-open');
+  }
+});
+
+// Pastikan hanya satu modal aktif (info modal dan cart modal tidak tumpang tindih):
+// Jika membuka cart modal, tutup info modal; jika membuka info modal, tutup cart modal.
+// (Simplenya, kita sudah menambahkan modal-open class; memastikan kedua modal hilang saat buka salah satu)
+function closeAllModals() {
+  infoModal.classList.add('hidden');
+  cartModal.classList.add('hidden');
+  document.body.classList.remove('modal-open');
+}
+
+// Jika ada skenario lain tapi ingin menutup semua modal:
+// closeAllModals();
+
+
+/* ----- Accessibility & keyboard support ----- */
+// Tutup modal dengan Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (!infoModal.classList.contains('hidden')) {
+      infoModal.classList.add('hidden');
+      document.body.classList.remove('modal-open');
+    }
+    if (!cartModal.classList.contains('hidden')) {
+      cartModal.classList.add('hidden');
+      document.body.classList.remove('modal-open');
+    }
+  }
+});
