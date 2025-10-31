@@ -1,4 +1,4 @@
-// Navigasi antar halaman
+// Navigasi antar halaman (tidak diubah fungsinya)
 const navLinks = document.querySelectorAll('.nav-link');
 const pages = document.querySelectorAll('.page');
 const shopNow = document.getElementById('shopNow');
@@ -26,6 +26,7 @@ const totalPrice = document.getElementById('total-price');
 const checkoutBtn = document.getElementById('checkout');
 const closeCart = document.getElementById('closeCart');
 
+// Tombol tambah ke keranjang
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
     const name = button.dataset.name;
@@ -36,6 +37,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   });
 });
 
+// Update isi keranjang
 function updateCart() {
   cartCount.textContent = cart.length;
   cartItems.innerHTML = '';
@@ -49,22 +51,9 @@ function updateCart() {
   totalPrice.textContent = `Total: Rp ${total.toLocaleString()}`;
 }
 
-// Tampilkan / sembunyikan modal keranjang
+// Modal keranjang
 document.querySelector('.cart-icon').addEventListener('click', () => {
   cartModal.classList.remove('hidden');
 });
 
-closeCart.addEventListener('click', () => {
-  cartModal.classList.add('hidden');
-});
-
-checkoutBtn.addEventListener('click', () => {
-  if (cart.length === 0) {
-    alert('Keranjang kamu masih kosong!');
-    return;
-  }
-  alert('Terima kasih! Pesananmu sedang diproses.');
-  cart = [];
-  updateCart();
-  cartModal.classList.add('hidden');
-});
+closeCart
