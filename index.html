@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PC Game Universe</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,7 +17,7 @@
       <a href="#" class="nav-link" data-page="home">Beranda</a>
       <a href="#" class="nav-link" data-page="games">Daftar Game</a>
       <a href="#" class="nav-link" data-page="contact">Kontak</a>
-      <div class="cart-icon">
+      <div class="cart-icon" title="Buka keranjang">
         🛒 <span id="cart-count">0</span>
       </div>
     </nav>
@@ -24,106 +28,196 @@
     <section id="home" class="page active fade-in">
       <div class="hero">
         <h1>Selamat Datang di <span>Game Universe</span></h1>
-        <p>Mulai petualanganmu! - Kami menyediakan koleksi game PC terbaik dengan harga terjangkau.</p>
-        <button id="shopNow">🎯 Belanja Sekarang</button>
+        <!-- Kalimat yang sudah diperhalus -->
+        <p class="hero-sub">Jelajahi petualangan tak berujung — kami menyediakan koleksi game PC terbaik dengan harga bersahabat dan layanan cepat tanpa ribet.</p>
+        <button id="shopNow" class="cta">🎯 Belanja Sekarang</button>
       </div>
 
-      <div class="featured-games">
-        <h2>🔥 Game Unggulan Minggu Ini</h2>
+      <!-- Section: Kenapa Memilih Kami -->
+      <section class="why-us">
+        <h2>Kenapa Memilih Kami?</h2>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">💸</div>
+            <h3>Harga Bersahabat</h3>
+            <p>Menawarkan pilihan harga yang ramah kantong tanpa mengorbankan kualitas dan update terbaru.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">⚡</div>
+            <h3>Layanan Cepat</h3>
+            <p>Pemesanan cepat dan dukungan responsif agar kamu bisa langsung bermain tanpa menunggu lama.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🧩</div>
+            <h3>Koleksi Lengkap</h3>
+            <p>Beragam genre dari RPG hingga simulasi — pilih sesuai gaya bermainmu.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Game Populer Minggu Ini -->
+      <section class="featured-games">
+        <h2>🔥 Game Populer Minggu Ini</h2>
         <div class="featured-grid">
           <div class="featured-item">
             <img src="https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/7abc917d6fa69155c1ddafde695ce93f.jpg" alt="Red Dead Redemption 2">
-            <p>Red Dead Redemption 2</p>
+            <p class="featured-title">Red Dead Redemption 2</p>
           </div>
           <div class="featured-item">
             <img src="https://m.media-amazon.com/images/M/MV5BZGQxMjYyOTUtNjYyMC00NzdmLWI4YmYtMDhiODU3Njc5ZDJkXkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg" alt="Elden Ring">
-            <p>Elden Ring</p>
+            <p class="featured-title">Elden Ring</p>
           </div>
           <div class="featured-item">
             <img src="https://image.api.playstation.com/vulcan/ap/rnd/202111/3013/2tW2zf7n8wwwWXZO9dAQMVu5.png" alt="Cyberpunk 2077">
-            <p>Cyberpunk 2077</p>
+            <p class="featured-title">Cyberpunk 2077</p>
           </div>
           <div class="featured-item">
             <img src="https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png" alt="AC Valhalla">
-            <p>Assassin’s Creed Valhalla</p>
+            <p class="featured-title">Assassin’s Creed Valhalla</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Section: Testimoni -->
+      <section class="testimonials">
+        <h2>Apa Kata Pemain</h2>
+        <div class="testi-grid">
+          <div class="testi-card">
+            <p>“Pelayanan cepat dan transaksinya mudah — langsung bisa main!”</p>
+            <span class="author">— Rina</span>
+          </div>
+          <div class="testi-card">
+            <p>“Pilihan gamenya lengkap, rekomendasi dari timnya juga helpful.”</p>
+            <span class="author">— Arif</span>
+          </div>
+          <div class="testi-card">
+            <p>“Harga bersaing dan packaging digitalnya rapi. Recommended.”</p>
+            <span class="author">— Dita</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Gabung Komunitas -->
+      <section class="join-community">
+        <h2>Bergabung dengan Komunitas</h2>
+        <p>Ikuti diskusi, dapatkan rekomendasi, dan berpartisipasilah dalam turnamen komunitas kami.</p>
+        <button class="cta ghost">Bergabung Sekarang</button>
+      </section>
     </section>
 
     <!-- Halaman Daftar Game -->
     <section id="games" class="page fade-in">
       <h2>🕹️ Koleksi Game Terpopuler</h2>
       <div class="games-list">
-        <!-- Kartu game -->
-        <div class="game">
+        <!-- Kartu game: setiap kartu memiliki genre dan tombol "Tentang Game" -->
+        <div class="game" data-title="The Witcher 3: Wild Hunt">
           <img src="https://image.api.playstation.com/vulcan/ap/rnd/202211/0711/kh4MUIuMmHlktOHar3lVl6rY.png" alt="The Witcher 3">
           <h3>The Witcher 3: Wild Hunt</h3>
+          <p class="genre">RPG, Open World, Action</p>
           <p class="price">Rp 250.000</p>
-          <button class="add-to-cart" data-name="The Witcher 3" data-price="250000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="The Witcher 3" data-price="250000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="Dalam The Witcher 3, kamu akan menjelajahi dunia fantasi yang luas penuh misi, monster, dan pilihan moral yang berdampak. Cerita yang kaya, karakter mendalam, dan lingkungan terbuka membuat setiap petualangan terasa personal dan menantang.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Grand Theft Auto V">
           <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="GTA V">
           <h3>Grand Theft Auto V</h3>
+          <p class="genre">Action, Open World, Adventure</p>
           <p class="price">Rp 300.000</p>
-          <button class="add-to-cart" data-name="GTA V" data-price="300000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="GTA V" data-price="300000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="GTA V menawarkan kebebasan eksplorasi di kota besar dengan cerita yang tajam, misi beragam, dan mode multiplayer yang hidup. Cocok bagi kamu yang suka aksi cepat dan kebebasan bermain.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Minecraft">
           <img src="https://assets.xboxservices.com/assets/5e/f2/5ef2ec75-807b-4d2a-ad36-e62234270eaa.png?n=Minecraft-box-art.png" alt="Minecraft">
           <h3>Minecraft</h3>
+          <p class="genre">Sandbox, Building, Adventure</p>
           <p class="price">Rp 150.000</p>
-          <button class="add-to-cart" data-name="Minecraft" data-price="150000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="Minecraft" data-price="150000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="Minecraft memberikan kebebasan tanpa batas: bangun struktur, jelajahi gua, bertahan hidup, atau bermain kreatif bersama teman. Sederhana namun sangat memuaskan untuk segala usia.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Red Dead Redemption 2">
           <img src="https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/7abc917d6fa69155c1ddafde695ce93f.jpg" alt="Red Dead Redemption 2">
           <h3>Red Dead Redemption 2</h3>
+          <p class="genre">Action, Open World, Narrative</p>
           <p class="price">Rp 350.000</p>
-          <button class="add-to-cart" data-name="Red Dead Redemption 2" data-price="350000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="Red Dead Redemption 2" data-price="350000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="RDR2 menyuguhkan pengalaman naratif mendalam di era koboi dengan lingkungan hidup, karakter berlapis, dan momen sinematik yang mengesankan.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Cyberpunk 2077">
           <img src="https://image.api.playstation.com/vulcan/ap/rnd/202111/3013/2tW2zf7n8wwwWXZO9dAQMVu5.png" alt="Cyberpunk 2077">
           <h3>Cyberpunk 2077</h3>
+          <p class="genre">RPG, Sci-Fi, Open World</p>
           <p class="price">Rp 400.000</p>
-          <button class="add-to-cart" data-name="Cyberpunk 2077" data-price="400000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="Cyberpunk 2077" data-price="400000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="Masuki kota futuristik penuh aksi, kustomisasi, dan cerita bercabang. Cyberpunk menawarkan kebebasan bermain sambil mengeksplorasi pilihan moral dan teknologi canggih.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Resident Evil 4 Remake">
           <img src="https://assets-prd.ignimgs.com/2022/06/03/resident-evil-4-remake-button-001-1654224044946.jpg" alt="Resident Evil 4 Remake">
           <h3>Resident Evil 4 Remake</h3>
+          <p class="genre">Survival Horror, Action</p>
           <p class="price">Rp 370.000</p>
-          <button class="add-to-cart" data-name="Resident Evil 4 Remake" data-price="370000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="Resident Evil 4 Remake" data-price="370000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="RE4 Remake menyajikan ketegangan dan gameplay menegangkan dengan visual modern, musuh yang menantang, serta atmosfer yang membuat bulu kuduk berdiri.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Call of Duty: MWII">
           <img src="https://upload.wikimedia.org/wikipedia/id/thumb/4/4a/Call_of_Duty_Modern_Warfare_II_Key_Art.jpg/250px-Call_of_Duty_Modern_Warfare_II_Key_Art.jpg" alt="COD MWII">
           <h3>Call of Duty: Modern Warfare II</h3>
+          <p class="genre">Shooter, Action, Multiplayer</p>
           <p class="price">Rp 420.000</p>
-          <button class="add-to-cart" data-name="COD MWII" data-price="420000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="COD MWII" data-price="420000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="Pengalaman shooter intens dengan mode single-player sinematik dan multiplayer kompetitif yang cepat — sempurna untuk aksi tak henti.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Assassin’s Creed Valhalla">
           <img src="https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png" alt="AC Valhalla">
           <h3>Assassin’s Creed Valhalla</h3>
+          <p class="genre">Action, RPG, Historical</p>
           <p class="price">Rp 330.000</p>
-          <button class="add-to-cart" data-name="AC Valhalla" data-price="330000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="AC Valhalla" data-price="330000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="Selami era Viking dengan pertempuran brutal, cerita berlapis, dan peta dunia terbuka penuh misi serta eksplorasi.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="Elden Ring">
           <img src="https://m.media-amazon.com/images/M/MV5BZGQxMjYyOTUtNjYyMC00NzdmLWI4YmYtMDhiODU3Njc5ZDJkXkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg" alt="Elden Ring">
           <h3>Elden Ring</h3>
+          <p class="genre">Action RPG, Open World, Souls-like</p>
           <p class="price">Rp 450.000</p>
-          <button class="add-to-cart" data-name="Elden Ring" data-price="450000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="Elden Ring" data-price="450000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="Elden Ring menggabungkan dunia terbuka luas dengan tantangan ala souls, menghadirkan kisah yang misterius dan eksplorasi yang rewarding.">Tentang Game</button>
+          </div>
         </div>
 
-        <div class="game">
+        <div class="game" data-title="FIFA 23">
           <img src="https://image.api.playstation.com/vulcan/ap/rnd/202301/0312/GU1vXFJpbzGYNV6UN3U0Cnnb.png" alt="FIFA 23">
           <h3>FIFA 23</h3>
+          <p class="genre">Sports, Simulation</p>
           <p class="price">Rp 280.000</p>
-          <button class="add-to-cart" data-name="FIFA 23" data-price="280000">Tambah ke Keranjang</button>
+          <div class="actions">
+            <button class="add-to-cart" data-name="FIFA 23" data-price="280000">Tambah ke Keranjang</button>
+            <button class="btn-info" data-description="FIFA 23 menawarkan gameplay sepakbola realistis, mode karir, dan pengalaman multiplayer yang seru untuk penggemar olahraga.">Tentang Game</button>
+          </div>
         </div>
       </div>
     </section>
@@ -137,14 +231,26 @@
     </section>
   </main>
 
+  <!-- Modal: Tentang Game (info modal) -->
+  <div id="info-modal" class="modal hidden">
+    <div class="modal-content info-content" role="dialog" aria-modal="true" aria-labelledby="info-title">
+      <button class="modal-close" id="infoClose" aria-label="Tutup">✕</button>
+      <h3 id="info-title">Judul Game</h3>
+      <p id="info-desc">Deskripsi game akan muncul di sini.</p>
+    </div>
+  </div>
+
   <!-- Modal Keranjang -->
   <div id="cart-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2>🛒 Keranjang Belanja</h2>
-      <ul id="cart-items"></ul>
+    <div class="modal-content cart-content" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <button class="modal-close" id="closeCart" aria-label="Tutup keranjang">✕</button>
+      <h2 id="cart-title">🛒 Keranjang Belanja</h2>
+      <ul id="cart-items" class="cart-items"></ul>
       <p id="total-price">Total: Rp 0</p>
-      <button id="checkout">Checkout</button>
-      <button id="closeCart">Tutup</button>
+      <div class="cart-actions">
+        <button id="checkout" class="btn-primary">Checkout</button>
+        <button id="clearCart" class="btn-secondary">Bersihkan</button>
+      </div>
     </div>
   </div>
 
