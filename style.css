@@ -124,8 +124,8 @@ nav a:hover {
 }
 
 .cta.ghost {
-  background: white;
-  color: #0b74b3;
+  background: #0b74b3;
+  color: white;
   border: 2px solid rgba(255,255,255,0.18);
 }
 
