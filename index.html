@@ -224,10 +224,55 @@
     <!-- Halaman Kontak -->
     <section id="contact" class="page fade-in">
       <h2>📞 Hubungi Kami</h2>
-      <p>Butuh bantuan atau ingin menanyakan stok game tertentu?</p>
-      <p>Kirim email ke: <a href="22n40005@student.unika.ac.id">22n40005@student.unika.ac.id</a></p>
-      <p>Kirim email ke: <a href="22n40006@student.unika.ac.id">22n40006@student.unika.ac.id</a></p>
-      <p>Atau hubungi kami melalui WhatsApp: <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+      <p class="contact-intro">Butuh bantuan atau ingin menanyakan stok game tertentu? <br>Anda bisa mengisi formulir di bawah atau menghubungi kami langsung.</p>
+
+      <div class="contact-container">
+        <div class="contact-form-wrapper">
+          <h3>Kirim Pesan Langsung</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="contactName">Nama Anda</label>
+              <input type="text" id="contactName" name="contactName" placeholder="Contoh: Budi" required>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email Anda</label>
+              <input type="email" id="contactEmail" name="contactEmail" placeholder="Contoh: budi@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Pesan Anda</label>
+              <textarea id="contactMessage" name="contactMessage" rows="5" placeholder="Tuliskan pertanyaan Anda di sini..." required></textarea>
+            </div>
+            <button type="submit" class="cta">Kirim Pesan</button>
+          </form>
+        </div>
+
+        <div class="contact-options">
+          <h3>Info Kontak Lainnya</h3>
+          <div class="contact-card">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <strong>Email (Richard)</strong><br>
+                <a href="mailto:22n40005@student.unika.ac.id">22n40005@student.unika.ac.id</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <strong>Email (Erwin)</strong><br>
+                <a href="mailto:22n40006@student.unika.ac.id">22n40006@student.unika.ac.id</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📱</span>
+              <div>
+                <strong>WhatsApp</strong><br>
+                <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
