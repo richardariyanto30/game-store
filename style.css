@@ -449,10 +449,12 @@ footer {
 }
 
 .contact-form-wrapper h3,
-.contact-options h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #222;
+.contact-options {
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(20, 30, 60, 0.06);
+  text-align: center; 
 }
 
 /* Styling Form */
@@ -472,6 +474,7 @@ footer {
   margin-bottom: 6px;
   font-size: 14px;
   color: #333;
+  text-align: left; 
 }
 
 .form-group input[type="text"],
@@ -500,7 +503,7 @@ footer {
 }
 
 #contactForm .cta {
-  align-self: flex-start; 
+  align-self: center; 
 }
 
 .contact-card {
