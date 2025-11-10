@@ -151,3 +151,20 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+/* ----- Halaman Kontak (Form Handling) ----- */
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    // 1. Mencegah form terkirim (refresh halaman)
+    e.preventDefault(); 
+    
+    // 2. Beri notifikasi (simulasi)
+    // Di aplikasi nyata, ini adalah tempat mengirim data ke server
+    alert('Terima kasih atas pesan Anda! Kami akan segera merespons.');
+
+    // 3. Kosongkan form setelah terkirim
+    contactForm.reset();
+  });
+}
