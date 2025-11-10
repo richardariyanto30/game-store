@@ -440,12 +440,12 @@ footer {
 }
 
 /* Wrapper untuk form dan info */
-.contact-form-wrapper,
-.contact-options {
+.contact-form-wrapper {
   background: #fff;
   padding: 24px;
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(20, 30, 60, 0.06);
+  text-align: center; 
 }
 
 .contact-form-wrapper h3,
