@@ -1,10 +1,3 @@
-/* ===========================
-   SCRIPT UTAMA (index.js)
-   - Navigasi halaman
-   - Keranjang belanja (add, update, checkout, clear)
-   - Info modal (Tentang Game) + blur background + animasi
-   =========================== */
-
 /* ----- Navigasi antar halaman ----- */
 const navLinks = document.querySelectorAll('.nav-link');
 const pages = document.querySelectorAll('.page');
@@ -32,7 +25,7 @@ const cartModal = document.getElementById('cart-modal');
 const cartItems = document.getElementById('cart-items');
 const totalPrice = document.getElementById('total-price');
 const checkoutBtn = document.getElementById('checkout');
-const closeCartBtn = document.getElementById('closeCart'); // tombol X di modal
+const closeCartBtn = document.getElementById('closeCart');
 const clearCartBtn = document.getElementById('clearCart');
 
 // Tombol tambah ke keranjang
@@ -138,18 +131,11 @@ infoModal.addEventListener('click', (e) => {
   }
 });
 
-// Pastikan hanya satu modal aktif (info modal dan cart modal tidak tumpang tindih):
-// Jika membuka cart modal, tutup info modal; jika membuka info modal, tutup cart modal.
-// (Simplenya, kita sudah menambahkan modal-open class; memastikan kedua modal hilang saat buka salah satu)
 function closeAllModals() {
   infoModal.classList.add('hidden');
   cartModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
 }
-
-// Jika ada skenario lain tapi ingin menutup semua modal:
-// closeAllModals();
-
 
 /* ----- Accessibility & keyboard support ----- */
 // Tutup modal dengan Escape
